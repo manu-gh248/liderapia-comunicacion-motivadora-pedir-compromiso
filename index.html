@@ -5,15 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liderapia - Asistente Virtual</title>
 
-    <!-- Importación de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Importación de la tipografía Poppins (Light 300, Regular 400, Bold 500) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
-    <!-- Configuración de Tailwind para usar la identidad de Liderapia -->
     <script>
         tailwind.config = {
             theme: {
@@ -21,7 +18,7 @@
                     // Configuración de la fuente Poppins como predeterminada
                     fontFamily: {
                         sans: ['Poppins', 'sans-serif'],
-                                },
+                    },
                     // Configuración de la paleta de colores de Liderapia
                     colors: {
                         liderapia: {
@@ -31,11 +28,11 @@
                             gray: '#CCCCCC',
                             black: '#000000',
                             white: '#FFFFFF',
-                                    }
-                            }
                         }
                     }
-                        }
+                }
+            }
+        }
     </script>
 
     <style>
@@ -43,15 +40,15 @@
         .h1-brand {
             font-family: 'Poppins', sans-serif;
             font-weight: 500; /* Bold */
-                  }
+        }
         .h2-brand {
             font-family: 'Poppins', sans-serif;
             font-weight: 300; /* Poppins Light */
-                  }
+        }
         .text-brand {
             font-family: 'Poppins', sans-serif;
             font-weight: 400; /* Poppins Regular */
-                    }
+        }
 
         /* Estilos para la sección Hero con la imagen de fondo */
         .hero-background {
@@ -60,7 +57,7 @@
             background-position: center;
             position: relative;
             color: white; /* Color de texto blanco para contraste */
-                         }
+        }
 
         /* Superposición para mejorar la legibilidad del texto */
         .hero-background::before {
@@ -72,30 +69,47 @@
             bottom: 0;
             background-color: rgba(0, 0, 0, 0.5); /* Overlay negro semitransparente */
             z-index: 1;
-                                 }
+        }
 
         /* Asegura que el contenido esté por encima de la superposición */
         .hero-content {
             position: relative;
             z-index: 2;
-                      }
+        }
+        
+        /* 🔥 NUEVA CLASE PARA CORREGIR EL SOLAPAMIENTO DEL CONTENIDO */
+        /* La altura del header es: py-6 (48px) + logo (48px) + border-b (1px) = 97px. Usamos 97px de padding-top */
+        .pb-fixed-header {
+            padding-top: 97px; 
+        }
+        /* Barra morada parcialmente oculta y dinámica */
+        .overlap-header {
+              position: sticky;
+              top: 97px;           /* Coincide con la altura del header fijo */
+              margin-top: -40px;   /* cantidad de solapamiento, ajusta si quieres */
+              z-index: 10;
+              box-shadow: 0 8px 24px -8px rgba(68, 0, 166, 0.18);
+              transition: margin-top 0.3s, box-shadow 0.3s;
+        }
+        .overlap-header.hide {
+              margin-top: -60px;   /* se oculta más cuando scroll */
+              box-shadow: 0 2px 8px -8px rgba(68, 0, 166, 0.08);
+        }
     </style>
 </head>
-<body class="font-sans bg-liderapia-black text-liderapia-white text-brand">
+<body class="font-sans bg-liderapia-black text-liderapia-white text-brand pb-fixed-header">
 
-    <!-- Header con Logo Centrado -->
-    <header class="border-b border-liderapia-black bg-liderapia-black">
+    <header class="fixed top-0 left-0 w-full z-20 border-b border-liderapia-black bg-liderapia-black">
+        
         <div class="container mx-auto px-6 py-6 flex justify-center items-center">
             <img src="https://i.ibb.co/DfZXCBf2/LIDERAPIA-LOGO-03-GRIS.png" alt="Liderapia Logo" class="h-12 w-auto">
         </div>
     </header>
 
-     <!-- Sección de Título con fondo amarillo -->
-    <section class="bg-[#FEBB00] text-center py-4 px-6">
+    <section class="bg-[#7042DC] text-center py-4 px-6 overlap-header">
         <p class="text-brand text-lg md:text-xl text-black font-normal">Comunicación motivadora · Pedir compromiso</p>
     </section>
 
-    <!-- Sección Principal (Hero) -->
     <main>
         <section class="hero-background relative py-24 md:py-32 text-center">
             <div class="hero-content container mx-auto px-6">
@@ -110,23 +124,20 @@
                 </p>
             </div>
         </section>
-
-        
     </main>
 
-    <!-- Footer -->
     <footer class="mt-24 border-t border-liderapia-black bg-liderapia-black">
         <div class="container mx-auto px-6 py-8 text-center text-gray-500 text-brand">
             &copy; 2025 Liderapia. Todos los derechos reservados.
         </div>
-                        <div class="mt-8 text-center text-gray-400 text-sm max-w-3xl mx-auto">
-                    <p>Un breve recordatorio: la inteligencia artificial es increíble, pero aún está en desarrollo y puede cometer errores o dejar de responder momentáneamente. Adicionalmente, el rendimiento del sistema depende de la calidad y posible saturación de la red de comunicaciones y de los servidores del avatar. Por último, fíjate que las prácticas, las conversaciones, tienen un límite de tiempo. el objetivo es ayudarte a estar centrado unos pocos minutos en una tarea concreta. Eso ayuda mucho a asimilar conceptos y mejorar cualidades. Puedes iniciar nueva conversación en cualquier momento. Gracias y bienvenido al nuevo mundo de la IA.</p>
-                </div>
-                    <div class="mt-32 text-center">
-                    <a href="https://ibb.co/kVJnbjg1">
-                    <img src="https://i.ibb.co/HLCvw6Dd/valla-blanca-Liderapia.jpg" alt="valla-blanca-Liderapia" class="mx-auto max-w-full h-auto">
-                    </a>
-                </div>
+        <div class="mt-8 text-center text-gray-400 text-sm max-w-3xl mx-auto">
+            <p>Un breve recordatorio: la inteligencia artificial es increíble, pero aún está en desarrollo y puede cometer errores o dejar de responder momentáneamente. Adicionalmente, el rendimiento del sistema depende de la calidad y posible saturación de la red de comunicaciones y de los servidores del avatar. Por último, fíjate que las prácticas, las conversaciones, tienen un límite de tiempo. el objetivo es ayudarte a estar centrado unos pocos minutos en una tarea concreta. Eso ayuda mucho a asimilar conceptos y mejorar cualidades. Puedes iniciar nueva conversación en cualquier momento. Gracias y bienvenido al nuevo mundo de la IA.</p>
+        </div>
+        <div class="mt-32 text-center">
+            <a href="https://ibb.co/kVJnbjg1">
+            <img src="https://i.ibb.co/HLCvw6Dd/valla-blanca-Liderapia.jpg" alt="valla-blanca-Liderapia" class="mx-auto max-w-full h-auto">
+            </a>
+        </div>
     </footer>
 
     <!-- 
@@ -212,4 +223,17 @@
             document.body.appendChild(wrapDiv)
         }(globalThis);
     </script>
+     <script>
+        document.addEventListener('scroll', () => {
+          const barra = document.querySelector('.overlap-header');
+          if (!barra) return;
+          if (window.scrollY > 80) {
+            barra.classList.add('hide');
+          } 
+          else {
+            barra.classList.remove('hide');
+          }
+        });
+    </script>
 </body>
+</html>
